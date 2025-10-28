@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package kvstore.v1;
+option go_package = "grpc-kvstore/proto;kvstorepb";
+
+import "google/protobuf/empty.proto";
+
+message Key {
+  string key = 1;
+}
+
+message Value {
+  string value = 1;
+}
+
+message KeyValue {
+  string key = 1;
+  string value = 2;
+}
+
+message Ack {
+  bool ok = 1;
+  string message = 2;
+}
+
+service KVStore {
+  rpc Put(KeyValue) returns (Ack);
+  rpc Get(Key) returns (Value);
+  rpc List(google.protobuf.Empty) returns (stream KeyValue);
+}
+
+service Replicator {
+  rpc Replicate(KeyValue) returns (Ack);
+}
