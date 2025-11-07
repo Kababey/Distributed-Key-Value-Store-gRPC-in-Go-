@@ -17,16 +17,14 @@ A minimal **distributed key–value store** in **Go** using **gRPC**
 ---
 
 ## 🧩 Project Structure
-grpc-kvstore/
-├─ proto/
-│ └─ kvstore.proto
-├─ server/
-│ └─ main.go
-└─ client/
-└─ main.go
+grpc-kvstore\
+├─ proto\
+│ └─ kvstore.proto\
+├─ server\
+│ └─ main.go\
+└─ client\
+└─ main.go 
 
-yaml
-Copy code
 
 ---
 
